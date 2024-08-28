@@ -43,7 +43,7 @@ export const listSchool = async (req, res) => {
             school.latitude,
             school.longitude
         );
-        return { ...school, distance };
+        return { ...school, distance: `${distance.toFixed(2)} km` };
     }).sort((a, b) => a.distance - b.distance);
 
     res.status(200).json(sortedSchools);
